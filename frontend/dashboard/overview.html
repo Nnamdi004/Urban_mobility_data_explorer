@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview | Urban Mobility Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="icon" href="../assets/icons/favicon.ico" type="image/x-icon">
+</head>
+<body class="dashboard-body">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <span class="logo-icon">◉</span>
+                <span class="logo-text">Urban<span class="accent">Mobility</span></span>
+            </a>
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"/>
+                            <rect x="14" y="3" width="7" height="7"/>
+                            <rect x="14" y="14" width="7" height="7"/>
+                            <rect x="3" y="14" width="7" height="7"/>
+                        </svg>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="overview.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 3v18h18"/>
+                            <path d="M18 9l-5 5-4-4-3 3"/>
+                        </svg>
+                        <span>Overview</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="insights.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 16v-4M12 8h.01"/>
+                        </svg>
+                        <span>Insights</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="nav-section">
+                <span class="nav-section-title">Analytics</span>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 20V10M6 20V4M18 20v-4"/>
+                            </svg>
+                            <span>Charts</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20M2 12h20"/>
+                            </svg>
+                            <span>Maps</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-menu">
+                <div class="user-avatar">JD</div>
+                <div class="user-info">
+                    <span class="user-name" id="userName">John Doe</span>
+                    <span class="user-email" id="userEmail">john@example.com</span>
+                </div>
+                <button class="user-menu-btn" aria-label="User menu">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="1"/>
+                        <circle cx="12" cy="5" r="1"/>
+                        <circle cx="12" cy="19" r="1"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+                <div class="page-info">
+                    <h1 class="page-title">Overview</h1>
+                    <p class="page-subtitle">Comprehensive view of urban mobility metrics</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="date-range-picker">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                        <line x1="16" y1="2" x2="16" y2="6"/>
+                        <line x1="8" y1="2" x2="8" y2="6"/>
+                        <line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                    <select id="dateRange">
+                        <option value="today">Today</option>
+                        <option value="7d" selected>Last 7 days</option>
+                        <option value="30d">Last 30 days</option>
+                        <option value="90d">Last 90 days</option>
+                        <option value="custom">Custom Range</option>
+                    </select>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                    <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
+                <button class="btn btn-primary" id="exportBtn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Export
+                </button>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            <!-- Key Metrics Summary -->
+            <section class="metrics-summary">
+                <div class="metric-card highlight">
+                    <div class="metric-header">
+                        <span class="metric-label">Total Mobility Score</span>
+                        <span class="metric-badge">Live</span>
+                    </div>
+                    <div class="metric-value-large">87.4</div>
+                    <div class="metric-subtext">Out of 100 • Excellent</div>
+                    <div class="metric-trend positive">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                        </svg>
+                        +4.2 from last week
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <span class="metric-label">Average Speed</span>
+                    <div class="metric-value">32.5</div>
+                    <span class="metric-unit">km/h</span>
+                    <div class="metric-trend negative">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/>
+                        </svg>
+                        -2.1 km/h
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <span class="metric-label">Congestion Index</span>
+                    <div class="metric-value">0.42</div>
+                    <span class="metric-unit">Low</span>
+                    <div class="metric-trend positive">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                        </svg>
+                        -0.08
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <span class="metric-label">Active Commuters</span>
+                    <div class="metric-value">45.2K</div>
+                    <span class="metric-unit">now</span>
+                    <div class="metric-trend positive">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                        </svg>
+                        +12%
+                    </div>
+                </div>
+            </section>
+
+            <!-- Comparison Charts -->
+            <section class="comparison-section">
+                <div class="chart-card full-width">
+                    <div class="chart-header">
+                        <h3 class="chart-title">Weekly Comparison</h3>
+                        <div class="chart-legend">
+                            <span class="legend-item"><span class="dot blue"></span> This Week</span>
+                            <span class="legend-item"><span class="dot gray"></span> Last Week</span>
+                        </div>
+                    </div>
+                    <div class="chart-body tall">
+                        <canvas id="weeklyComparisonChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Zone Performance -->
+            <section class="zone-performance">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3 class="chart-title">Top Performing Zones</h3>
+                    </div>
+                    <div class="zone-list" id="topZones">
+                        <div class="zone-item">
+                            <div class="zone-rank">1</div>
+                            <div class="zone-details">
+                                <span class="zone-name">Downtown Core</span>
+                                <div class="zone-bar">
+                                    <div class="zone-progress" style="width: 94%;"></div>
+                                </div>
+                            </div>
+                            <span class="zone-score">94%</span>
+                        </div>
+                        <div class="zone-item">
+                            <div class="zone-rank">2</div>
+                            <div class="zone-details">
+                                <span class="zone-name">Business District</span>
+                                <div class="zone-bar">
+                                    <div class="zone-progress" style="width: 89%;"></div>
+                                </div>
+                            </div>
+                            <span class="zone-score">89%</span>
+                        </div>
+                        <div class="zone-item">
+                            <div class="zone-rank">3</div>
+                            <div class="zone-details">
+                                <span class="zone-name">Tech Hub</span>
+                                <div class="zone-bar">
+                                    <div class="zone-progress" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                            <span class="zone-score">85%</span>
+                        </div>
+                        <div class="zone-item">
+                            <div class="zone-rank">4</div>
+                            <div class="zone-details">
+                                <span class="zone-name">University Area</span>
+                                <div class="zone-bar">
+                                    <div class="zone-progress" style="width: 82%;"></div>
+                                </div>
+                            </div>
+                            <span class="zone-score">82%</span>
+                        </div>
+                        <div class="zone-item">
+                            <div class="zone-rank">5</div>
+                            <div class="zone-details">
+                                <span class="zone-name">Shopping Center</span>
+                                <div class="zone-bar">
+                                    <div class="zone-progress" style="width: 78%;"></div>
+                                </div>
+                            </div>
+                            <span class="zone-score">78%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3 class="chart-title">Mobility by Transport Type</h3>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="transportTypeChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Time Distribution -->
+            <section class="time-distribution">
+                <div class="chart-card full-width">
+                    <div class="chart-header">
+                        <h3 class="chart-title">Hourly Activity Distribution</h3>
+                        <div class="chart-actions">
+                            <button class="chart-tab active" data-type="trips">Trips</button>
+                            <button class="chart-tab" data-type="duration">Duration</button>
+                            <button class="chart-tab" data-type="distance">Distance</button>
+                        </div>
+                    </div>
+                    <div class="heatmap-container">
+                        <div class="heatmap-grid" id="hourlyHeatmap">
+                            <!-- Generated by JS -->
+                        </div>
+                        <div class="heatmap-legend">
+                            <span>Low</span>
+                            <div class="legend-gradient"></div>
+                            <span>High</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="../js/utils/api.js"></script>
+    <script src="../js/utils/auth-guard.js"></script>
+    <script src="../js/utils/mock-data.js"></script>
+    <script src="../js/dashboard/main.js"></script>
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+</html>
