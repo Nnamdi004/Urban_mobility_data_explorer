@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Mobility Explorer | Discover City Movement Patterns</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">◉</span>
+                <span class="logo-text">Urban<span class="accent">Mobility</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#insights">Insights</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <div class="nav-auth">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                    <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
+                <a href="auth/login.html" class="btn btn-ghost">Log In</a>
+                <a href="auth/signup.html" class="btn btn-primary">Get Started</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="grid-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="pulse"></span>
+                Real-time Urban Analytics
+            </div>
+            <h1 class="hero-title">
+                Decode the <span class="accent-text">Pulse</span> of<br>
+                Urban Movement
+            </h1>
+            <p class="hero-subtitle">
+                Transform complex mobility data into actionable insights. 
+                Visualize traffic patterns, optimize routes, and understand 
+                how your city moves.
+            </p>
+            <div class="hero-cta">
+                <a href="auth/signup.html" class="btn btn-primary btn-large">
+                    Start Exploring
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#features" class="btn btn-outline btn-large">
+                    See How It Works
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-value">2.4M+</span>
+                    <span class="stat-label">Data Points</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-value">150+</span>
+                    <span class="stat-label">Zones Mapped</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-value">99.9%</span>
+                    <span class="stat-label">Uptime</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Capabilities</span>
+                <h2 class="section-title">Powerful Tools for<br><span class="accent-text">Smart Decisions</span></h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M3 3v18h18"/>
+                            <path d="M18 9l-5 5-4-4-3 3"/>
+                        </svg>
+                    </div>
+                    <h3>Real-time Analytics</h3>
+                    <p>Monitor traffic flow, congestion patterns, and mobility trends as they happen across your city.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20M2 12h20"/>
+                        </svg>
+                    </div>
+                    <h3>Interactive Maps</h3>
+                    <p>Explore heatmaps, zone clusters, and route visualizations with our intuitive mapping interface.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 20V10M6 20V4M18 20v-4"/>
+                        </svg>
+                    </div>
+                    <h3>Smart Charts</h3>
+                    <p>Bar charts, line graphs, and scatter plots that tell the story behind your mobility data.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>Secure Platform</h3>
+                    <p>Enterprise-grade security with encrypted data transmission and secure authentication.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Preview Section -->
+    <section id="insights" class="insights-preview">
+        <div class="container">
+            <div class="insights-content">
+                <span class="section-tag">Insights</span>
+                <h2 class="section-title">Data-Driven<br><span class="accent-text">Urban Planning</span></h2>
+                <p class="insights-text">
+                    Our platform processes millions of mobility data points to deliver 
+                    insights that help city planners, researchers, and businesses make 
+                    smarter decisions about urban infrastructure.
+                </p>
+                <ul class="insights-list">
+                    <li>
+                        <span class="check-icon">✓</span>
+                        Peak hour traffic analysis
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        Zone-based movement patterns
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        Historical trend comparisons
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        Predictive congestion modeling
+                    </li>
+                </ul>
+                <a href="auth/signup.html" class="btn btn-primary">
+                    Access Full Dashboard
+                </a>
+            </div>
+            <div class="insights-visual">
+                <div class="mock-dashboard">
+                    <div class="mock-header">
+                        <div class="mock-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                    </div>
+                    <div class="mock-content">
+                        <div class="mock-chart chart-1"></div>
+                        <div class="mock-chart chart-2"></div>
+                        <div class="mock-map"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-tag">About</span>
+                <h2 class="section-title">Built for <span class="accent-text">Urban Innovation</span></h2>
+                <p class="section-desc">
+                    Urban Mobility Explorer is designed for city planners, researchers, 
+                    and anyone passionate about understanding how urban areas function 
+                    and evolve through movement data.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">◉</span>
+                        <span class="logo-text">Urban<span class="accent">Mobility</span></span>
+                    </a>
+                    <p>Transforming urban data into actionable insights.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Platform</h4>
+                        <ul>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#insights">Insights</a></li>
+                            <li><a href="dashboard/dashboard.html">Dashboard</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Account</h4>
+                        <ul>
+                            <li><a href="auth/login.html">Log In</a></li>
+                            <li><a href="auth/signup.html">Sign Up</a></li>
+                            <li><a href="auth/forgot-password.html">Reset Password</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Urban Mobility Explorer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/utils/api.js"></script>
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+</html>
