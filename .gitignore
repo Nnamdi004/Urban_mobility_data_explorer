@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+*.egg-info/
+
+# Data files (too large for GitHub)
+backend/data/raw/*.csv
+backend/data/raw/*.parquet
+backend/data/raw/*.zip
+backend/data/processed/*.csv
+
+# Keep only small lookup files
+!backend/data/raw/taxi_zone_lookup.csv
+
+# Logs
+backend/data/logs/*.txt
+backend/data/logs/*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment variables
+.env
+.env.local
