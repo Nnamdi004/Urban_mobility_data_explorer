@@ -19,9 +19,9 @@ backend/data/processed/*.csv
 # Keep only small lookup files
 !backend/data/raw/taxi_zone_lookup.csv
 
-# Logs
-backend/data/logs/*.txt
+# Logs (keep transparency log for documentation)
 backend/data/logs/*.log
+!backend/data/logs/transparency_log.txt
 
 # IDE
 .vscode/

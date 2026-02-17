@@ -1,0 +1,8 @@
+--- DATA CLEANING TRANSPARENCY LOG ---
+Execution Date: 2026-02-18 00:14:12.525123
+Initial Records Received: 7667792
+- Removed 6294 records with invalid timestamps (Dropoff <= Pickup).
+- Removed 48801 records with zero or negative distance.
+- Removed 6977 records with fare < $2.50.
+Final Records Exported: 7605720
+Data Reduction: 0.81%
