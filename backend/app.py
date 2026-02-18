@@ -11,6 +11,7 @@ from dotenv import load_dotenv
 # add parent dir to import our modules
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
+from config import get_config
 from models.trip import Trip
 from models.zone import Zone
 from services.query_service import QueryService
@@ -18,8 +19,11 @@ from services.analytics_service import AnalyticsService
 
 load_dotenv()
 
+# Initialize Flask app with config
+config = get_config()
 app = Flask(__name__)
-CORS(app)  # allow frontend to call our API
+app.config.from_object(config)
+CORS(app, origins=app.config['CORS_ORIGINS'])  # allow frontend to call our API
 
 # initialize services
 trip_model = Trip()
@@ -282,11 +286,13 @@ def internal_error(error):
     return jsonify({'error': 'Internal server error'}), 500
 
 if __name__ == '__main__':
-    port = int(os.getenv('API_PORT', 5000))
-    debug = os.getenv('FLASK_DEBUG', 'True') == 'True'
+    print(f"Starting API server on port {app.config['API_PORT']}...")
+    print(f"Debug mode: {app.config['DEBUG']}")
+    print(f"Database: {app.config['DB_PATH']}")
+    print(f"API will be available at http://localhost:{app.config['API_PORT']}")
     
-    print(f"Starting API server on port {port}...")
-    print(f"Debug mode: {debug}")
-    print(f"API will be available at http://localhost:{port}")
-    
-    app.run(host='0.0.0.0', port=port, debug=debug)
+    app.run(
+        host=app.config['API_HOST'], 
+        port=app.config['API_PORT'], 
+        debug=app.config['DEBUG']
+    )
