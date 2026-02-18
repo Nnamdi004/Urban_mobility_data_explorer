@@ -1,0 +1,16 @@
+# Data Processing
+pandas==2.0.3
+numpy==1.24.3
+
+# Database connection
+psycopg2-binary==2.9.6
+
+# File formats
+pyarrow==12.0.1
+fastparquet==2023.7.0
+
+# Environment
+python-dotenv==1.0.0
+
+# Data validation 
+# jsonschema==4.19.0

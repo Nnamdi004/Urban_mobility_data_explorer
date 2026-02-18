@@ -1,0 +1,19 @@
+# API Framework
+Flask==2.3.2
+Flask-CORS==4.0.0
+
+# Database
+psycopg2-binary==2.9.6
+
+# Data handling (for API responses)
+pandas==2.0.3
+numpy==1.24.3
+
+# Environment variables
+python-dotenv==1.0.0
+
+# Optional - if you add auth later
+# Flask-JWT-Extended==4.5.2
+
+# Optional - for better JSON serialization
+# simplejson==3.19.1
