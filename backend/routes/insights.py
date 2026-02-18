@@ -12,7 +12,7 @@ insights_bp = Blueprint('insights', __name__, url_prefix='/api')
 analytics_service = AnalyticsService()
 query_service = QueryService()
 
-# ===== Basic Stats =====
+# Basic Stats 
 
 @insights_bp.route('/stats', methods=['GET'])
 def get_stats():
@@ -41,7 +41,7 @@ def get_borough_stats():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-# ===== Analytics (Custom Algorithms) =====
+#  Analytics (Custom Algorithms) 
 
 @insights_bp.route('/analytics/top-zones', methods=['GET'])
 def analyze_top_zones():
@@ -111,7 +111,7 @@ def get_insights():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-# ===== Routes =====
+#  Routes 
 
 @insights_bp.route('/routes/popular', methods=['GET'])
 def get_popular_routes():
@@ -123,7 +123,7 @@ def get_popular_routes():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-# ===== Search =====
+#  Search 
 
 @insights_bp.route('/search/trips', methods=['POST'])
 def search_trips():
@@ -135,7 +135,7 @@ def search_trips():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-# ===== Health Check =====
+#  Health Check
 
 @insights_bp.route('/health', methods=['GET'])
 def health_check():
