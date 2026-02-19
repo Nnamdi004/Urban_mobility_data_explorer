@@ -2,8 +2,6 @@
 
 A full-stack data analytics application for exploring NYC taxi trip patterns, built with Python, Flask, and vanilla JavaScript.
 
----
-
 ## Team
 
 - Chibueze Onugha
@@ -804,6 +802,3 @@ This project is for educational purposes. Data provided by NYC Taxi & Limousine 
 Link to video demonstration: [Add your video link here]
 
 ---
-
-
-
