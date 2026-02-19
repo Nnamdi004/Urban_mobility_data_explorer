@@ -799,6 +799,13 @@ This project is for educational purposes. Data provided by NYC Taxi & Limousine 
 
 ## Video Walkthrough
 
-Link to video demonstration: [Add your video link here]
+https://youtu.be/TyAu2EPfhps
+
+## Team Task sheet
+https://docs.google.com/spreadsheets/d/1SwW3GJu0nL8595CqCWU290puL2PpBTYC2HN8W2z8CUM/edit?gid=0#gid=0 
+
+## PDF Technical Report
+
+Refer to the docs repo
 
 ---
