@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 from load_data import DataLoader
 from clean_data import DataCleaner
-from feature_engineering import FeatureEngineer
+from feature_egineering import FeatureEngineer
 from validate_data import DataValidator
 
 load_dotenv()
