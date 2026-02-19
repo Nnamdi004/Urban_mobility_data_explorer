@@ -4,10 +4,10 @@
  */
 
 const API = {
-    // Base URL - change this when backend is ready
-    baseURL: '/api',
+    // Base URL - connected to Flask backend
+    baseURL: 'http://localhost:5000/api',
     
-    // Use mock data while backend isn't ready
+    // Use mock auth for demonstration (real data from backend)
     useMock: true,
 
     /**

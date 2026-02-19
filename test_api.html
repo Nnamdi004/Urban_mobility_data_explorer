@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Test - Urban Mobility Explorer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #0a0a0a;
+            color: #fff;
+        }
+        h1 { color: #FFD600; }
+        .test-section {
+            background: #1a1a1a;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+        button {
+            background: #FFD600;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 5px;
+        }
+        button:hover { background: #ffd; }
+        .result {
+            background: #0a0a0a;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 4px;
+            border: 1px solid #333;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .success { color: #00ff88; }
+        .error { color: #ff5252; }
+        pre { margin: 0; white-space: pre-wrap; }
+        .status { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; }
+        .status.online { background: #00ff88; color: #000; }
+        .status.offline { background: #ff5252; color: #fff; }
+    </style>
+</head>
+<body>
+    <h1>🚕 Backend API Integration Test</h1>
+    <p>Backend Status: <span class="status" id="backendStatus">Checking...</span></p>
+
+    <div class="test-section">
+        <h2>1. Health Check</h2>
+        <button onclick="testHealth()">Test /api/health</button>
+        <div class="result" id="healthResult">Click button to test...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>2. Get Statistics</h2>
+        <button onclick="testStats()">Test /api/stats</button>
+        <div class="result" id="statsResult">Click button to test...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>3. Get Zones</h2>
+        <button onclick="testZones()">Test /api/zones</button>
+        <div class="result" id="zonesResult">Click button to test...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>4. Get Trips (Paginated)</h2>
+        <button onclick="testTrips()">Test /api/trips</button>
+        <div class="result" id="tripsResult">Click button to test...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>5. Get Hourly Stats</h2>
+        <button onclick="testHourly()">Test /api/stats/hourly</button>
+        <div class="result" id="hourlyResult">Click button to test...</div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:5000';
+
+        async function checkBackendStatus() {
+            try {
+                const response = await fetch(`${API_BASE}/api/health`);
+                const data = await response.json();
+                const statusEl = document.getElementById('backendStatus');
+                if (data.status === 'healthy') {
+                    statusEl.className = 'status online';
+                    statusEl.textContent = 'Online ✓';
+                } else {
+                    statusEl.className = 'status offline';
+                    statusEl.textContent = 'Unhealthy';
+                }
+            } catch (error) {
+                const statusEl = document.getElementById('backendStatus');
+                statusEl.className = 'status offline';
+                statusEl.textContent = 'Offline ✗';
+            }
+        }
+
+        async function testEndpoint(url, resultId) {
+            const resultEl = document.getElementById(resultId);
+            resultEl.innerHTML = '<p>Loading...</p>';
+            
+            try {
+                const startTime = Date.now();
+                const response = await fetch(url);
+                const data = await response.json();
+                const duration = Date.now() - startTime;
+                
+                resultEl.innerHTML = `
+                    <p class="success">✓ Success (${duration}ms)</p>
+                    <p><strong>Status:</strong> ${response.status}</p>
+                    <p><strong>Response:</strong></p>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                `;
+            } catch (error) {
+                resultEl.innerHTML = `
+                    <p class="error">✗ Error</p>
+                    <p>${error.message}</p>
+                    <p><strong>Make sure the backend is running:</strong></p>
+                    <pre>cd backend
+python app.py</pre>
+                `;
+            }
+        }
+
+        function testHealth() {
+            testEndpoint(`${API_BASE}/api/health`, 'healthResult');
+        }
+
+        function testStats() {
+            testEndpoint(`${API_BASE}/api/stats`, 'statsResult');
+        }
+
+        function testZones() {
+            testEndpoint(`${API_BASE}/api/zones?limit=5`, 'zonesResult');
+        }
+
+        function testTrips() {
+            testEndpoint(`${API_BASE}/api/trips?page=1&per_page=5`, 'tripsResult');
+        }
+
+        function testHourly() {
+            testEndpoint(`${API_BASE}/api/stats/hourly`, 'hourlyResult');
+        }
+
+        // Check backend status on load
+        checkBackendStatus();
+        setInterval(checkBackendStatus, 5000); // Check every 5 seconds
+    </script>
+</body>
+</html>
